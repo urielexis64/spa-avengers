@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
   <button
     class="navbar-toggler"
     type="button"
@@ -34,11 +34,16 @@
     <form class="form-inline my-2 my-lg-0">
       <input
         class="form-control mr-sm-2"
-        type="search"
+        type="text"
         placeholder="Search"
-        aria-label="Search"
+        (keydown.enter)="searchHero(searchText.value, $event)"
+        #searchText
       />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+      <button
+        (click)="searchHero(searchText.value, $event)"
+        class="btn btn-outline-primary my-2 my-sm-0"
+        type="button"
+      >
         Search
       </button>
     </form>
